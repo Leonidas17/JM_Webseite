@@ -335,6 +335,7 @@
       display: block;
       width: 100%;
       height: auto;
+      background: #080808;
     }
     @media (max-width: 768px) {
       .hero-particle-wrap { max-width: 100%; }
@@ -1798,6 +1799,9 @@
           ctx.fillText('IDENTITÄTEN.',   CW / 2, CH / 2 + fs * 1.15);
         });
       } else {
+        // Fill canvas immediately with site background to avoid flash
+        ctx.fillStyle = '#080808';
+        ctx.fillRect(0, 0, CW, CH);
         document.fonts.ready.then(() => {
           showWord(WORDS[0]);
           animate();
